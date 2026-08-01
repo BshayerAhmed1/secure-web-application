@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home after login</title>
+  <style>   
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #e4e4e4;
+        color: #000000;
+    }
+
+    nav {
+        background: #333;
+        background-size: cover;
+        color: #fff;
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    header ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    header .join-btn {
+        background-color: #66acde;
+        color: #ffffff;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    header img {
+        border-radius: 5px;
+        margin-left: 8px;
+        height: 90%;
+        width: 99%;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #f5f5f5;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .hero .generate-btn {
+        background-color: #66acde;
+        color: #000;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container3 {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .download-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+        background-color: #66acde;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+        background-color: #6dded5;
+    }
+
+    /* For Notification */
+    .notification {
+        display: none;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        background: #333;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 20px;
+        gap: 20px; 
+    }
+
+    .image-block img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px; 
+    }
+
+    .text-block {
+        max-width: 500px; 
+    }
+
+    .text-block h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+    .text-block p {
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 1.5;
+    }
+
+    .container2 {
+        background: #333;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .image-block2 img {
+        max-width: 80%; 
+        height: auto;
+        border-radius: 8px; 
+    }
+
+    .text-block2 {
+        margin-left: 100px;
+        max-width: 500px; 
+    }
+
+    .text-block2 h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+    .text-block2 p {
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 1.5;
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-align: center; 
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .features {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .feature-box {
+        width: 250px;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .download {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    footer {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .download h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .download p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .download .download-btn {
+        background-color: #ff0000;
+        color: #000;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="homeafterlogin.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <img src="Picturs/OIC4.png" alt="pic1">
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>CodeAnalyzer</h1>
+      <p>comprehensive tool for dynamic and static code analysis! Whether you're a developer, tester, or code reviewer.</br> CodeAnalyzer will help you ensure your code is clean, efficient, and error-free.</p>
+
+      <div class="container3">
+        <button class="download-btn" id="downloadBtn">Download</button>
+      </div>
+    </section>
+    
+    <div class="container">
+        <div class="image-block">
+            <img src="Picturs/simg.jpg" alt="Placeholder Image">
+        </div>
+        <div class="text-block">
+            <h2>Static Code Analysis</h2>
+            <p>Identifies syntax errors, unused variables, and dead code.</br>
+              Provides recommendations for code optimization and refactoring.</br>
+              Flags potential security vulnerabilities like SQL injection, XSS, and improper data handling.</p>
+        </div>
+    </div>
+
+    <section>
+      <h2>Feature Highlights</h2>
+      <div class="features">
+          <div class="feature-box">
+              <h3>Critical security rules for vital languages</h3></br>
+              <p>Coding issues are found at the right time and in the right place seamlessly in your dev workflow. Benefit from 6,000+ rules and industry-leading taint analysis of Java, C#, PHP, and more.</p>
+          </div>
+          <div class="feature-box">
+              <h3>High performance and operability</h3>
+              <p>Deploy your way, on-prem, in the cloud, as a server, with Docker, or with Kubernetes. Multi-threading, multiple compute engines, and language-specific loading delivers optimal performance.</p>
+          </div>
+          <div class="feature-box">
+              <h3>Comprehensive Reporting</h3>
+              <p>Detailed, actionable reports to help teams fix issues and improve code quality.
+                Clear visualizations and easy-to-read metrics to track progress and identify regressions in your codebase.</p>
+          </div>
+      </div>
+    </section>
+    <div class="container2">
+    
+      <div class="text-block2">
+          <h2>Dynamic Code Analysis</h2>
+          <p>Runs your application in a real-time environment to detect runtime issues.</br>
+            Offers performance profiling, memory leak detection, and slow code path identification.</br>
+            Simulates different user scenarios to ensure reliability under various conditions.</p>
+      </div>
+      <div class="image-block2">
+        <img src="Picturs/img2.jpg" alt="Placeholder Image">
+      </div>
+  </div>
+
+  <div class="notification" id="notification">
+    <p>Download started...</p>
+  </div>
+
+  <footer>
+      <p>&copy; 2024 My Website. All rights reserved.</p>
+  </footer>
+</main>
+
+<script>
+  const downloadBtn = document.getElementById("downloadBtn");
+  const notification = document.getElementById("notification");
+
+  downloadBtn.addEventListener("click", () => {
+    notification.style.display = "block";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 3000); // hide notification after 3 seconds
+  });
+</script>
+
+</body>
+</html>

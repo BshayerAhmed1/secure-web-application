@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home before login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e4e4e4;
+            color: #000000;
+        }
+
+        nav {
+            background: #333;
+            background-size: cover;
+            color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .join-btn {
+            background-color: #66acde;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .join-btn:hover {
+            background-color: #6dded5;
+        }
+
+        header img {
+            border-radius: 5px;
+            margin-left: 8px;
+            height: 90%;
+            width: 99%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 100px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 8px;
+            width: 500px;
+            max-width: 90%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #66acde;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6dded5;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #66acde;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        #otpSection button {
+            background-color: #66acde;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #otpSection button:hover {
+            background-color: #6dded5;
+        }
+
+        .container {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-block {
+            max-width: 500px;
+        }
+
+        .text-block h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .text-block p {
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .container2 {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .image-block2 img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-block2 {
+            margin-left: 100px;
+            max-width: 500px;
+        }
+
+        .text-block2 h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .text-block2 p {
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e4e4e4;
+            color: #000000;
+        }
+
+
+        nav {
+            background: #333;
+            background-size: cover;
+            color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .join-btn {
+            background-color: #66acde;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .join-btn:hover {
+            background-color: #6dded5;
+        }
+
+        header img {
+            border-radius: 5px;
+            margin-left: 8px;
+            height: 90%;
+            width: 99%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero .generate-btn {
+            background-color: #66acde;
+            color: #000;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .container3 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .download-btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #66acde;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #6dded5;
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 100px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 8px;
+            width: 500px;
+            max-width: 90%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #66acde;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6dded5;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #66acde;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        #otpSection button {
+            background-color: #66acde;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+
+        #otpSection button:hover {
+            background-color: #6dded5;
+        }
+
+        #otpSection button:focus {
+            outline: none;
+            box-shadow: 0 0 5px #6dded5;
+        }
+
+        .container {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-block {
+            max-width: 500px;
+        }
+
+        .text-block h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .text-block p {
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .container2 {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .image-block2 img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-block2 {
+            margin-left: 100px;
+            max-width: 500px;
+        }
+
+        .text-block2 h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .text-block2 p {
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-box {
+            width: 250px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .download {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .download h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .download p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .download .download-btn {
+            background-color: #ff0000;
+            color: #000;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+            </ul>
+            <a href="signUp.html">
+                <button class="join-btn">Join Us</button>
+            </a>
+        </nav>
+        <img src="Picturs/OIC4.png" alt="pic1">
+    </header>
+
+    <main>
+        <main>
+            <section class="hero">
+                <h1>CodeAnalyzer</h1>
+                <p>comprehensive tool for dynamic and static code analysis! Whether you're a developer, tester, or code
+                    reviewer.</br> CodeAnalyzer will help you ensure your code is clean, efficient, and error-free.</p>
+
+                <div class="container3">
+                    <button class="download-btn" id="downloadBtn">Download</button>
+                </div>
+            </section>
+
+            <!-- Modal Login Form -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeBtn">&times;</span>
+
+                    <div id="loginForm">
+                        <h2>Login</h2>
+                        <form action="JS/login.php" method="POST" onsubmit="return validateForm()">
+                            <input type="text" id="username" placeholder="Username" required><br>
+                            <input type="password" id="password" placeholder="Password" required><br>
+                            <input type="submit" value="Login">
+                        </form>
+
+                        <div class="links">
+                            <a href="javascript:void(0);" class="reset-pass" onclick="showResetPassword()">Forgot
+                                Password?</a><br>
+                            <a href="signUp.html" class="sign-up">Don't have an account? Sign up</a>
+                        </div>
+                    </div>
+
+                    <!-- Reset Password Form -->
+                    <div id="resetPasswordForm" style="display: none;">
+                        <h2>Reset Your Password</h2>
+                        <form action="#">
+                            <input type="email" id="email" placeholder="Enter your email" required><br>
+                            <input type="submit" value="Send OTP" onclick="sendOTP(event)">
+                        </form>
+                        <div class="links">
+                            <a href="javascript:void(0);" onclick="showLoginForm()">Back to Login</a>
+                        </div>
+                        <div id="otpSection" style="display: none;">
+                            <h3>Enter OTP</h3>
+                            <input type="text" id="otp" placeholder="Enter OTP" required><br>
+                            <input type="submit" value="Reset Password" onclick="openResetModal()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="resetPasswordModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeResetModal()">&times;</span>
+                    <h2>Reset Password</h2>
+                    <form id="resetPasswordForm" onsubmit="validateAndSubmit(event)">
+                        <input type="password" id="newPassword" placeholder="New Password" required>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                        <p id="passwordError" class="error-message"></p>
+                        <p id="confirmPasswordError" class="error-message"></p>
+                        <input type="submit" value="Reset Password">
+                    </form>
+                </div>
+            </div>
+            </section>
+            <div class="container">
+                <div class="image-block">
+                    <img src="Picturs/simg.jpg" alt="Placeholder Image">
+                </div>
+                <div class="text-block">
+                    <h2>Static Code Analysis</h2>
+                    <p>Identifies syntax errors, unused variables, and dead code.</br>
+                        Provides recommendations for code optimization and refactoring.</br>
+                        Flags potential security vulnerabilities like SQL injection, XSS, and improper data handling.
+                    </p>
+                </div>
+            </div>
+            <section>
+                <h2>Feature Highlights</h2>
+                <div class="features">
+                    <div class="feature-box">
+                        <h3>Critical security rules for vital languages</h3></br>
+                        <p>Coding issues are found at the right time and in the right place seamlessly in your dev
+                            workflow. Benefit from 6,000+ rules and industry-leading taint analysis of Java, C#, PHP,
+                            and more.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>High performance and operability</h3>
+                        <p>Deploy your way, on-prem, in the cloud, as a server, with Docker, or with Kubernetes.
+                            Multi-threading, multiple compute engines, and language-specific loading delivers optimal
+                            performance.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Comprehensive Reporting</h3>
+                        <p>Detailed, actionable reports to help teams fix issues and improve code quality.
+                            Clear visualizations and easy-to-read metrics to track progress and identify regressions in
+                            your codebase.</p>
+                    </div>
+            </section>
+            </div>
+            </section>
+            <div class="container2">
+
+                <div class="text-block2">
+                    <h2>Dynamic Code Analysis</h2>
+                    <p>Runs your application in a real-time environment to detect runtime issues.</br>
+                        Offers performance profiling, memory leak detection, and slow code path identification.</br>
+                        Simulates different user scenarios to ensure reliability under various conditions.</p>
+                </div>
+                <div class="image-block2">
+                    <img src="Picturs/img2.jpg" alt="Placeholder Image">
+                </div>
+            </div>
+            <footer>
+                <p>&copy; 2024 My Website. All rights reserved.</p>
+            </footer>
+        </main>
+
+        <script>
+            var modal = document.getElementById("loginModal");
+            var downloadBtn = document.getElementById("downloadBtn");
+            var closeBtn = document.getElementById("closeBtn");
+
+            downloadBtn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            closeBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            var attemptCount = 0;
+            var locked = false;
+
+            function validateForm() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                if (locked) {
+                    alert('You are locked out. Please try again after a minute.');
+                    return false;
+                }
+
+                if (username === 'Ghena' && password === 'Ghenadag123$') {
+                    window.location.href = 'homeafterlogin.html';
+                    return true;
+                } else {
+                    attemptCount++;
+                    if (attemptCount >= 3) {
+                        locked = true;
+                        setTimeout(function () {
+                            locked = false;
+                            attemptCount = 0;
+                        }, 60000); // lock for 1 minute
+                    }
+                    alert('Error: Invalid username or password. Please check your details.');
+                    return false;
+                }
+            }
+
+            var verificationCode = null;
+
+            function generateOTP() {
+                return Math.floor(100000 + Math.random() * 900000); // random 6-digit OTP
+            }
+
+            function sendOTP(event) {
+                event.preventDefault();
+                var email = document.getElementById('email').value;
+
+            // if (email === 'Ghena@gmail.com') {
+                   // verificationCode = generateOTP();
+                   // alert(`Verification code sent to your email=${verificationCode }`);
+                   // document.getElementById('otpSection').style.display = 'block';
+               // } else {
+                //    alert('Please enter the email registered with us.');
+               // }
+            }
+
+            function verifyOTP() {
+                var otpInput = document.getElementById('otp').value;
+                if (otpInput == verificationCode) {
+                    alert('OTP verified successfully!');
+                    document.getElementById('otpSection').style.display = 'none';
+                } else {
+                    alert('Incorrect OTP, please try again.');
+                }
+            }
+
+            function showResetPassword() {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('resetPasswordForm').style.display = 'block';
+            }
+
+            function showLoginForm() {
+                document.getElementById('resetPasswordForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'block';
+            }
+            // Function to handle reset password process
+            function resetPassword(event) {
+                event.preventDefault();
+
+                var newPassword = document.getElementById("newPassword").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+
+                // Check if passwords match
+                if (newPassword !== confirmPassword) {
+                    document.getElementById("passwordError").textContent = "Passwords do not match!";
+                    return false;
+                }
+
+                // Passwords match, proceed with resetting password logic
+                alert("Password reset successful! Redirecting to home.");
+
+                // Redirect to home page
+                window.location.href = "home.html"; // Replace with your home page URL
+
+                return true;
+            }
+
+            // Function to show the reset password form after OTP verification
+            function verifyOTP() {
+                // Assuming OTP verification is successful
+                document.getElementById("otpSection").style.display = "none";
+                document.getElementById("resetPasswordForm").style.display = "block";
+            }
+            function openResetModal() {
+                // Hide the reset password form if it's visible
+                document.getElementById("resetPasswordForm").style.display = "none";
+
+                // Show the reset password modal
+                document.getElementById("resetPasswordModal").style.display = "block";
+            }
+
+            function closeResetModal() {
+                // Hide the reset password modal
+                document.getElementById("resetPasswordModal").style.display = "none";
+            }
+            function openResetModal() {
+                document.getElementById("resetPasswordModal").style.display = "block";
+            }
+
+            function closeResetModal() {
+                document.getElementById("resetPasswordModal").style.display = "none";
+            }
+            function validateAndSubmit(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Get the values from input fields
+                var newPassword = document.getElementById("newPassword").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+
+                // Select error message elements
+                var passwordError = document.getElementById("passwordError");
+                var confirmPasswordError = document.getElementById("confirmPasswordError");
+
+                // Clear previous errors
+                passwordError.textContent = '';
+                confirmPasswordError.textContent = '';
+
+                var hasUppercase = /[A-Z]/.test(newPassword);
+                var hasNumber = /[0-9]/.test(newPassword);
+                var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(newPassword);
+
+                // Validate New Password
+                if (newPassword.length < 8) {
+                    passwordError.textContent = 'Password must be at least 8 characters long.';
+                    return false;
+                } else if (!hasUppercase) {
+                    passwordError.textContent = 'Password must contain at least one uppercase letter.';
+                    return false;
+                } else if (!hasNumber) {
+                    passwordError.textContent = 'Password must contain at least one number.';
+                    return false;
+                } else if (!hasSpecialChar) {
+                    passwordError.textContent = 'Password must contain at least one special character.';
+                    return false;
+                }
+
+                // Validate Confirm Password
+                if (newPassword !== confirmPassword) {
+                    confirmPasswordError.textContent = 'Passwords do not match.';
+                    return false;
+                }
+
+                // If everything is valid, show success and close the modal
+                alert("Password reset successful!");
+                closeResetModal(); // Close the modal after success
+                return true; // Proceed with form submission
+            }
+
+            function openResetModal() {
+                document.getElementById("resetPasswordModal").style.display = "block";
+            }
+
+            function closeResetModal() {
+                document.getElementById("resetPasswordModal").style.display = "none";
+            }
+
+            // Optional: add real-time validation as the user types
+            document.getElementById("newPassword").addEventListener('input', function () {
+                var password = this.value;
+                const passwordError = document.getElementById("passwordError");
+                const hasUppercase = /[A-Z]/.test(password);
+                const hasNumber = /[0-9]/.test(password);
+                const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+                if (password.length < 8) {
+                    passwordError.textContent = 'Password must be at least 8 characters long.';
+                } else if (!hasUppercase) {
+                    passwordError.textContent = 'Password must contain at least one uppercase letter.';
+                } else if (!hasNumber) {
+                    passwordError.textContent = 'Password must contain at least one number.';
+                } else if (!hasSpecialChar) {
+                    passwordError.textContent = 'Password must contain at least one special character.';
+                } else {
+                    passwordError.textContent = ''; // Clear the error
+                }
+            });
+
+            document.getElementById("confirmPassword").addEventListener('input', function () {
+                var confirmPassword = this.value;
+                var password = document.getElementById("newPassword").value;
+                const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+                if (confirmPassword !== password) {
+                    confirmPasswordError.textContent = 'Passwords do not match.';
+                } else {
+                    confirmPasswordError.textContent = ''; // Clear the error
+                }
+            });
+            function openResetModal() {
+                // Hide the reset password form if it's visible
+                document.getElementById("resetPasswordForm").style.display = "none";
+
+                // Show the reset password modal
+                document.getElementById("resetPasswordModal").style.display = "block";
+            }
+
+            function closeResetModal() {
+                // Hide the reset password modal
+                document.getElementById("resetPasswordModal").style.display = "none";
+            }
+        </script>
+</body>
+
+</html>
