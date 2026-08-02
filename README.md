@@ -26,7 +26,7 @@ A secure full-stack web application built with a focus on defense-in-depth secur
 ## 🗄️ Database Schema & Setup
 
 To replicate the backend database environment, execute the following SQL script in MySQL/MariaDB:
----sql
+
 sql
 CREATE DATABASE IF NOT EXISTS UserSignUp;
 USE UserSignUp;
