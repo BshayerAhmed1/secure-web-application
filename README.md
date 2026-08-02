@@ -21,8 +21,6 @@ A secure full-stack web application built with a focus on defense-in-depth secur
 
 ### 4. Client-Side Defensive UX
 * Real-time input validation enforcing password complexity rules (uppercase letters, numbers, and special characters)[cite: 1, 2].
-* Interactive OTP verification and password recovery simulation flows[cite: 1, 2].
-
 ---
 
 ## 🗄️ Database Schema & Setup
@@ -40,7 +38,7 @@ CREATE TABLE IF NOT EXISTS Users (
     email VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+);---
 
 -- Login Attempts Table (Used for brute-force tracking & account lockouts)
 CREATE TABLE IF NOT EXISTS login_attempts (
