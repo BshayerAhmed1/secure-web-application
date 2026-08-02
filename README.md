@@ -66,7 +66,7 @@ Cryptography: OpenSSL (AES-256-CBC), Native PHP Password Hashing (BCRYPT)
 
 ---
 📂 Repository Structure
-
+```
 ├── config.php              # Database setup & AES-256-CBC encryption logic
 ├── login.php               # Authentication logic with brute-force rate-limiting
 ├── signup.php              # Registration endpoint using prepared statements
@@ -75,6 +75,6 @@ Cryptography: OpenSSL (AES-256-CBC), Native PHP Password Hashing (BCRYPT)
 ├── signUp.html            # Registration interface with client-side validation
 └── profile.html           # User profile management interface
 
-
+```
 طط
 طط--
